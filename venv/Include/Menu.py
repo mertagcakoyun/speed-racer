@@ -61,7 +61,7 @@ class Menu_TextItem():
         self.state=0#mouse state for color changing
         self.mouseDownEvent=pygame.event.Event(pygame.USEREVENT, attr1=self.name,attr2="mouseDownEvent")
         self.mouseUpEvent=pygame.event.Event(pygame.USEREVENT, attr1=self.name,attr2="mouseUpEvent")
-        
+
     def checkMouseOver(self,mlocation):
         if self.state==2:
             return True
@@ -136,7 +136,7 @@ class Menu():
     def checkMouseOver(self,location):
         for item in self.objectList:
             item.checkMouseOver(location)
-            
+
     def onMouseDown(self,location):
         for item in self.objectList:
             item.onMouseDown(location)
