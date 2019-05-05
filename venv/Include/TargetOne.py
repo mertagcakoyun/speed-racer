@@ -69,7 +69,9 @@ class TargetOne():
 class PoliceTarget(TargetOne):
     def __init__(self,TargetOne):
         super().__init__(TargetOne.screen)
-        self.rectangle =TargetOne.rectangle
+        randx = [165, 300, 430, 550]
+        self.x = randx[random.randint(0, 3)]
+        self.rectangle = pygame.rect.Rect(self.x, self.y, 65, 111)
         self.carImagesOrder = 0
         self.carImages = []
 

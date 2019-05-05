@@ -46,14 +46,14 @@ class ChapterOne():
         self.pgenerateTargetTimer.stop()
         self.gasUseTimer.stop()
         pygame.event.post(self.finishEvent)
+        print("CIKILDI")
     def complated(self,screen):
         self.pgenerateTargetTimer.stop()
         self.gasUseTimer.stop()
         pygame.event.post(self.complatedEvent)
 
-
     def generateTarget(self,arguments):
-        targetChoice= random.randint(0,9)
+        targetChoice= random.randint(0,8)
         print(str(targetChoice))
         newTarget = None
 
@@ -61,7 +61,7 @@ class ChapterOne():
             newTarget= TargetOne(arguments[0])
         elif targetChoice == 1 or targetChoice == 5 or targetChoice == 8:
             newTarget = PoliceTarget(TargetOne(arguments[0]))
-        elif targetChoice ==2 or targetChoice == 6 or targetChoice == 9:
+        elif targetChoice ==2 or targetChoice == 6 :
             newTarget = GreenTarget(TargetOne(arguments[0]))
         elif targetChoice==3:
             newTarget = FuelTarget(TargetOne(arguments[0]))
@@ -160,9 +160,9 @@ class ChapterOne():
     def drawScore(self,gameTime,screen):
 
         score=font.render("Score:", 1,black)
-        score_counter=score_font.render(str(self.updateScore()), 1, green)
-        screen.blit(score, (10, 570))
-        screen.blit(score_counter, (95, 573))
+        score_counter=score_font.render(str(self.updateScore()), 1, red)
+        screen.blit(score, (685, 10))
+        screen.blit(score_counter, (765, 14))
 
 
     def updateScore(self):

@@ -1,4 +1,5 @@
 import pygame
+from Chapter import *
 class Menu_ButtonItem():
     def __init__(self,name,  width=100, height=100,centerlocation=(0,0), mainColor=(128,128,128),onMouseOverColor=(128,150,150),onMouseDownColor=(50,100,150),text="notext",textSize=80, textColor=(0,0,0)):
         self.name=name
@@ -106,6 +107,7 @@ class Menu():
             item.state=0
 
     def runMenu(self,screen):
+        self.chapter = ChapterOne(screen)
         self.reset_state()
         self.isActive=True
         screenshoot=screen.copy()
@@ -125,7 +127,8 @@ class Menu():
                 elif event==self.btnResume.mouseDownEvent:
                     self.isActive=False
                 elif event==self.btnExit.mouseDownEvent:
-                    return True
+                    self.chapter.finish(screen)                 ##CIK Kontrolu
+
                 elif event==self.btnRestart.mouseDownEvent:
                     return True
                 screen.blit(screenshoot,(0,0))
